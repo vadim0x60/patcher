@@ -14,7 +14,9 @@ Use REST inside your Clojure programs. Represent an edit to a data structure as 
 A patch is a map with 3 keys: `:type`, `:path` and `:value`. `:type` can be `:put`, `:post` and `:delete`.
 
 `:put` will replace whatever value you would get with `(get-in coll path)` with `value`
+
 `:post` is similar, but it will `conj` or `merge` (in case of maps) `value` to existing data instead of replacing it
+
 `:delete` will purge it from the data structure so that `(get-in coll path)` returns `nil`
 
 ## Example
@@ -24,7 +26,7 @@ A patch is a map with 3 keys: `:type`, `:path` and `:value`. `:type` can be `:pu
 
 ## License
 
-Copyright © 2018 FIXME
+Copyright © 2018 Skolkovo Institute of Science and Technology
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
