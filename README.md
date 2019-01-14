@@ -21,13 +21,13 @@ or this to `deps.edn` (if you don't)
 
 ## Usage
 
-First, things first, let's get imports and namespaces off our chest.
+First things first, let's get imports and namespaces off our chest.
 
 ```clj
 (require '[patcher.core :refer [apply-patch])
 ```
 
-Then fire up the REPL and type a definition in-o:
+Then fire up the REPL, type a definition in-o:
 
 ```clj
 (def patch {:type :put :path [:some :keys] :value "A new value"})
