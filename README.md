@@ -10,13 +10,13 @@ Use REST inside your Clojure programs. Represent an edit to a data structure as 
 Add this to `project.clj` (if you use Leiningen)
 
 ```clj
-[patcher "0.1.0"]
+[patcher "0.1.1"]
 ```
 
 or this to `deps.edn` (if you don't)
 
 ```clj
-{patcher {:mvn/version "0.1.0"}}
+{patcher {:mvn/version "0.1.1"}}
 ```
 
 ## Usage

@@ -1,4 +1,4 @@
-(defproject patcher "0.1.0"
+(defproject patcher "0.1.1"
   :description "Use REST inside your Clojure programs. Represent a patch to a data structure as a data structure and apply it."
   :url "https://github.com/vadim0x60/patcher"
   :license {:name "Eclipse Public License"
