@@ -7,6 +7,12 @@
     (set? coll) (disj coll key)
     (seqable? coll) (concat (take key coll) (drop (inc key) coll))))
 
+(defn merge-anything [coll1 coll2]
+  "Merges maps and sequences alike"
+  (cond
+    (every? map? [coll1 coll2]) (merge coll1 coll2)
+    (every? seqable? [coll1 coll2]) (concat coll1 coll2)))
+  
 (defn edit [coll key f]
   "Like update, but it supports seqs and removal (if f returns nil)"
   (if-let [new-val (f (get coll key))]
@@ -24,10 +30,10 @@
 
 (defn patch-fn [type value]
   (case type
-    :put (fn [old-value] value)
-    ; Merge will add value to a sequence or merge it into a map
-    :post (fn [old-value] (merge old-value value))
-    :delete (fn [old-value] nil)))
+    :put (constantly value)
+    :post (partial conj old-value)
+    :merge (partial merge-everything old-value)
+    :delete (constantly nil)))
 
 (defn apply-patch [patch old-value]
   (edit-in old-value (:path patch) (patch-fn (:type patch) (:value patch))))
