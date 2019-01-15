@@ -24,7 +24,7 @@ or this to `deps.edn` (if you don't)
 First things first, let's get imports and namespaces off our chest.
 
 ```clj
-(require '[patcher.core :refer [apply-patch])
+(require '[patcher.core :refer [apply-patch]])
 ```
 
 Then fire up the REPL, type a definition in-o:
