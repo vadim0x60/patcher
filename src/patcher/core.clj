@@ -31,11 +31,9 @@
 (defn patch-fn [type value]
   (case type
     :put (constantly value)
-    :post (partial conj old-value)
-    :merge (partial merge-everything old-value)
+    :post #(conj % value)
+    :merge (partial merge-anything value)
     :delete (constantly nil)))
 
 (defn apply-patch [patch old-value]
   (edit-in old-value (:path patch) (patch-fn (:type patch) (:value patch))))
-
-(apply-patch {:type :post :path [:interests] :value :music} {:age 35 :sex :male :interests [:cooking]})
