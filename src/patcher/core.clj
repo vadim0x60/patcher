@@ -24,9 +24,10 @@
   (let [loc (butlast path)
         name (last path)
         edit-f #(edit % name f)]
-    (if (not-empty loc)
-      (update-in coll loc edit-f)
-      (edit-f coll))))
+    (cond 
+      (nil? name) (f coll)
+      (empty? loc) (edit-f coll)
+      :else (update-in coll loc edit-f))))
 
 (defn patch-fn [type value]
   (case type
