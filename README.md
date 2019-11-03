@@ -50,8 +50,11 @@ Apply it to a thing-o
 A patch is a map with 3 keys: `:type`, `:path` and `:value`. `:type` can be `:put`, `:post`, `:delete` or `:merge`.
 
 `:put` will replace whatever value you would get with `(get-in coll path)` with `value`
+
 `:post` is similar, but it will insert (`conj`) `value` into the existing sequence instead of replacing it
+
 `:merge` assumes that `value` is a map or a sequence and replaces a map or a sequence at `path` with a concatenation (merger) of it and `value`
+
 `:delete` will purge it from the data structure so that `(get-in coll path)` returns `nil`
 
 ## License
